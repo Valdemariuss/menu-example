@@ -1,0 +1,16 @@
+.main-menu {
+  display: block;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    display: inline-block;
+    padding: 0.5em 1em;
+    border-right: 1px solid #ccc;
+    font-size: 16px;
+
+    &:last-of-type {
+      border-right: none;
+    }
+  }
+}

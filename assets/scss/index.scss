@@ -1,0 +1,15 @@
+/* ------------------------------------------- libs */
+// Doc: https://github.com/m-spyratos/bootstrap-4-grid
+@import "bootstrap-4-grid/scss/grid.scss";
+
+/* ------------------------------------------- layout */
+@import "layouts/default";
+
+/* ------------------------------------------- common */
+@import "common";
+
+/* ------------------------------------------- components */
+@import "components/main-menu";
+
+/* ------------------------------------------- pages */
+@import "pages/catalog";

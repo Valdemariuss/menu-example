@@ -1,0 +1,29 @@
+{
+  "name": "getenergo-test",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "Vladimir Sartakov <arhangel7b@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "bootstrap-4-grid": "^3.4.0",
+    "nuxt": "^2.0.0",
+    "portal-vue": "^2.1.7",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^4.19.1",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-vue": "^4.0.0"
+  }
+}
