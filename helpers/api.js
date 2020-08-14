@@ -1,9 +1,7 @@
 import axios from 'axios'
-import config from '~/config'
 import Vue from 'vue'
 
 const api = axios.create({
-  baseURL: config.BASEURL_API,
   headers: {},
   timeout: 20000
 })
