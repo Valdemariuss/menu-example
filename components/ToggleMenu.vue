@@ -4,10 +4,16 @@
     <ul :class="classPrefix + '__ul'">
       <li v-for="item in items" :class="classPrefix + '__item'" :key="item.url">
         <nuxt-link :class="classPrefix + '__link'" :to="urlPrefix + item.url">{{ item.name }}
-          <span  v-if="item.childs && item.childs.length" :class="[classPrefix + '__toggle', {'--open': opens[item.category_id] }]" @click.prevent.stop="toggle(item.category_id)"><i>></i></span>
+          <span  v-if="item.childs && item.childs.length" :class="[classPrefix + '__toggle', {'--open': opensState[item.category_id] }]" @click.prevent.stop="toggle(item.category_id)"><i>></i></span>
         </nuxt-link>
         <toggle-slide>
-          <toggle-menu v-if="item.childs && item.childs.length && opens[item.category_id]" :items="item.childs" :urlPrefix="urlPrefix" classPrefix="toggle-menu-sub" :class="{'--open': opens[item.category_id] }" />
+          <toggle-menu v-if="item.childs && item.childs.length && opensState[item.category_id]"
+            :items="item.childs"
+            :opens="opensState"
+            :urlPrefix="urlPrefix" classPrefix="toggle-menu-sub"
+            :class="{'--open': opensState[item.category_id] }"
+            @on-toggle="toggleEmit"
+            />
         </toggle-slide>
       </li>
     </ul>
@@ -15,6 +21,7 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'toggle-menu',
@@ -22,25 +29,38 @@ export default {
     header: '',
     items: {
       type: Array,
-      default: function () {
+      default: () => {
         return []
+      }
+    },
+    opens: {
+      type: Object,
+      default: () => {
+        return {}
       }
     },
     urlPrefix: '',
     classPrefix: {
       type: String,
-      default: function () {
+      default: () => {
         return 'toggle-menu'
       }
     },
   },
   data: () => ({
-    opens: {},
+    opensState: {},
   }),
+  created() {
+    this.opensState = Object.assign({}, this.opens)
+  },
   methods: {
     toggle(id) {
-      this.$set(this.opens, id, !this.opens[id])
+      this.$set(this.opensState, id, !this.opensState[id])
+      this.toggleEmit(id)
+    },
+    toggleEmit(id) {
+      this.$emit('on-toggle', id)
     }
-  }
+  },
 }
 </script>

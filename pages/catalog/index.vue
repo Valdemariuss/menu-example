@@ -3,7 +3,7 @@
      <div class="container">
         <div class="row">
           <aside class="col-md-4">
-            <toggle-menu header="Категории" :items="sortedCategories" urlPrefix="/catalog/" />
+            <toggle-menu header="Категории" :key="updateMenu" :items="sortedCategories" :opens="opensCategories" @on-toggle="onToggle" urlPrefix="/catalog/" />
           </aside>
           <div class="col-md-8">
             <div class="catalog-page__content">
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 import ToggleMenu from '~/components/ToggleMenu.vue'
 
@@ -27,6 +27,9 @@ export default {
   components: {
     ToggleMenu,
   },
+  data: () => ({
+    updateMenu: 0,
+  }),
   async created() {
     if( !this.categories || !this.categories.length) {
       await this.$store.dispatch('catalog/getCategories')
@@ -42,6 +45,17 @@ export default {
     categories() {
       return this.$store.state.catalog.categories
     },
+    opensCategories() {
+      return this.$store.state.catalog.openCategories
+    },
   },
+  methods: {
+    ...mapMutations('catalog', [
+      'TOGGLE_CATEGORIES_OPEN_BY_ID',
+    ]),
+    onToggle(catId) {
+      this.TOGGLE_CATEGORIES_OPEN_BY_ID(catId)
+    },
+  }
 }
 </script>
