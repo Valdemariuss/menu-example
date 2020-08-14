@@ -6,7 +6,9 @@
         <nuxt-link :class="classPrefix + '__link'" :to="urlPrefix + item.url">{{ item.name }}
           <span  v-if="item.childs && item.childs.length" :class="[classPrefix + '__toggle', {'--open': opens[item.category_id] }]" @click.prevent.stop="toggle(item.category_id)"><i>></i></span>
         </nuxt-link>
-        <toggle-menu v-if="item.childs && item.childs.length" :items="item.childs" :urlPrefix="urlPrefix" classPrefix="toggle-menu-sub" :class="{'--open': opens[item.category_id] }" />
+        <toggle-slide>
+          <toggle-menu v-if="item.childs && item.childs.length && opens[item.category_id]" :items="item.childs" :urlPrefix="urlPrefix" classPrefix="toggle-menu-sub" :class="{'--open': opens[item.category_id] }" />
+        </toggle-slide>
       </li>
     </ul>
   </div>

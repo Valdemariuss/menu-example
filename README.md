@@ -1,6 +1,7 @@
 # getenergo-test
 
 > Nuxt.js project
+
 > Node version - 14
 
 ## Build Setup

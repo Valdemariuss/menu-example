@@ -76,12 +76,11 @@
 .toggle-menu-sub {
   display: block;
 
-  &:not(.--open) {
-    display: none;
-  }
+  // &:not(.--open) {
+  //   // display: none;
+  // }
 
   &.--open {
-    // background-color: rgba(204, 204, 204, 0.2);
     border-bottom: 1px solid #ccc;
   }
 

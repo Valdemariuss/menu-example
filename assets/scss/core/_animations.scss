@@ -1,0 +1,5 @@
+.toggle-slide {
+  will-change: height;
+  transition: height 200ms linear;
+  overflow: hidden;
+}

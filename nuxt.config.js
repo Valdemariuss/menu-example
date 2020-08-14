@@ -25,6 +25,7 @@ module.exports = {
   */
   plugins: [
     { src: '~/plugins/all-client', ssr: false },
+    { src: '~/plugins/transitions.js', ssr: false },
   ],
   /*
    ** Nuxt.js modules
