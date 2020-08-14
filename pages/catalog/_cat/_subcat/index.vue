@@ -6,7 +6,6 @@
 import CatalogPage from '~/pages/catalog/index.vue'
 
 export default {
-  layout: "aside",
   components: {
     CatalogPage,
   }

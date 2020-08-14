@@ -1,4 +1,5 @@
 module.exports = {
+  mode: 'universal',
   /*
   ** Headers of the page
   */
@@ -14,10 +15,6 @@ module.exports = {
     ]
   },
   /*
-  ** Customize the progress bar color
-  */
-  loading: { color: '#3B8070' },
-  /*
   ** Global CSS
   */
   css: [
@@ -27,8 +24,45 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/all',
+    { src: '~/plugins/all-client', ssr: false },
   ],
+  /*
+   ** Nuxt.js modules
+   */
+  modules: [
+    // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/axios',
+    // Doc: https://github.com/nuxt-community/proxy-module
+    '@nuxtjs/proxy',
+  ],
+  /*
+  ** Axios module configuration
+  ** See https://axios.nuxtjs.org/options
+  */
+  axios: {
+    proxy: true,
+    prefix: '/api/',
+  },
+
+  /*
+  ** See https://axios.nuxtjs.org/options.html#proxy
+  */
+  proxy: {
+    '/api/': {
+      target: 'http://api.holypony.ru/',
+      pathRewrite: {'^/api/': ''},
+    },
+  },
+
+  /*
+  ** Server module configuration
+  ** See https://nuxtjs.org/api/configuration-server
+  */
+  server: {
+      host: '0.0.0.0',
+      port: 3001,
+  },
+
   /*
   ** Build configuration
   */

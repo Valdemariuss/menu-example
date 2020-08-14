@@ -1,0 +1,104 @@
+.toggle-menu {
+  display: block;
+  padding: 10px 0;
+  margin: 0;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  background-color: #fff;
+
+  &__hd {
+    display: block;
+    padding: 15px 20px;
+    margin: 0;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  &__ul {
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    padding: 0;
+    margin: 0;
+
+    .nuxt-link-exact-active {
+      background: rgba(#ccc, 0.3);
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    margin: 0;
+    font-size: 16px;
+    text-decoration: none;
+    color: #000;
+    transition: background 0.3s;
+
+    &:hover {
+      background: rgba(#ccc, 0.2);
+    }
+  }
+
+  &__toggle {
+    display: block;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    will-change: transform;
+    transform: scale(1);
+    transition: transform 0.3s;
+
+    i {
+      display: inline-block;
+      transform:  scale(1.5, 1) rotate(90deg);
+      transition: transform 0.5s;
+    }
+
+    &.--open {
+      i {
+        transform:  scale(1.5, 1) rotate(-90deg);
+      }
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.toggle-menu-sub {
+  display: block;
+
+  &:not(.--open) {
+    display: none;
+  }
+
+  &.--open {
+    // background-color: rgba(204, 204, 204, 0.2);
+    border-bottom: 1px solid #ccc;
+  }
+
+  &__ul {
+    @extend .toggle-menu__ul;
+  }
+
+  &__item {
+    @extend .toggle-menu__item;
+    padding:0 0 0 10px;
+  }
+
+  &__link {
+    @extend .toggle-menu__link;
+  }
+
+  &__toggle {
+    @extend .toggle-menu__toggle;
+  }
+}

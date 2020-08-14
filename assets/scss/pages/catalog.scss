@@ -1,33 +1,18 @@
-.catalog-menu {
-  display: block;
-  padding: 0;
-  margin: 20px 0;
-  list-style: none;
-  position: sticky;
-  top: 20px;
+.catalog-page {
+  background-color: rgba(204, 204, 204, 0.2);
+  flex: 1;
+  box-sizing: border-box;
+  padding: 20px 0;
 
-  &__item {
-    display: block;
-    padding: 0;
-    margin: 0;
-
-    .nuxt-link-exact-active {
-      background: rgba(#ccc, 0.3);
-    }
+  &__content {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: #fff;
+    min-height: 100%;
   }
 
-  &__link {
-    display: block;
-    padding: 0.5em 1em;
-    margin: 0;
-    font-size: 16px;
-    text-decoration: none;
-    color: #000;
-    transition: background 0.3s;
-
-    &:hover {
-      background: rgba(#ccc, 0.2);
-    }
+  h1 {
+    margin: 0 0 20px 0;
   }
-
 }

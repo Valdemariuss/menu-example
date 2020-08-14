@@ -5,22 +5,30 @@
   background: #fff;
 
   &__header, &__footer {
-    text-align: center;
     padding: 20px 0;
     width: 100%;
+    color: #fff;
   }
 
   &__header {
     border-bottom: 1px solid #ccc;
-    margin: 0 auto 20px auto;
+    margin: 0 auto;
+    background-color: #000;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
   }
 
   &__main {
     flex: 1;
+    display: flex;
   }
 
   &__footer {
     border-top: 1px solid #ccc;
-    margin: 20px auto 0 auto;
+    margin: 0 auto;
+    background-color: #2d2d2d;
   }
 }

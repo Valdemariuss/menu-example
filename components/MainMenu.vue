@@ -8,7 +8,7 @@
 
 const items = [
   { title: 'Home', path: '/' },
-  { title: 'Catalog', path: 'catalog' },
+  { title: 'Catalog', path: '/catalog' },
 ]
 
 export default {
