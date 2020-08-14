@@ -7,7 +7,7 @@
           </aside>
           <div class="col-md-8">
             <div class="catalog-page__content">
-              <h1>Catalog page</h1>
+              <h1>{{ title}}</h1>
               <div v-if="params.cat"><b>Категория</b>: {{ params.cat }}</div>
               <div v-if="params.subcat"><b>Подкатегория</b>: {{ params.subcat }}</div>
               <div v-if="params.subsubcat"><b>Подподкатегория</b>: {{ params.subsubcat }}</div>
@@ -38,6 +38,7 @@ export default {
   computed: {
     ...mapGetters('catalog', [
       'sortedCategories',
+      'getCategoryByUrl',
     ]),
     params() {
       return this.$route.params
@@ -47,6 +48,11 @@ export default {
     },
     opensCategories() {
       return this.$store.state.catalog.openCategories
+    },
+    title(){
+      const url = Object.values(this.params).join('/') || ''
+      const item = this.getCategoryByUrl(url)
+      return item && item.name ? item.name : 'Catalog page'
     },
   },
   methods: {

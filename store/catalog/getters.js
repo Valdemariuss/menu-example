@@ -1,5 +1,5 @@
 export default {
-  sortedCategories: (state) => {
+  sortedCategories: state => {
     const cats = state.categories
     const setChilds = {
       i: 0,
@@ -15,5 +15,8 @@ export default {
       }
     }
     return setChilds.action(cats.filter(cat => !cat.parent_id))
+  },
+  getCategoryByUrl: state => url => {
+    return state.categories.find( cat => cat.url === url );
   },
 }
