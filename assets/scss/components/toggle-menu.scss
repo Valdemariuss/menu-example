@@ -76,10 +76,6 @@
 .toggle-menu-sub {
   display: block;
 
-  // &:not(.--open) {
-  //   // display: none;
-  // }
-
   &.--open {
     border-bottom: 1px solid #ccc;
   }
