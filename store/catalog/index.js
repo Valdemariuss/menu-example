@@ -1,6 +1,5 @@
 import state from './state'
 import actions from './actions'
-import getters from './getters'
 import mutations from './mutations'
 
 export default function catalogStore() {
@@ -8,7 +7,6 @@ export default function catalogStore() {
     namespaced: true,
     state,
     actions,
-    getters,
     mutations,
-  };
+  }
 }

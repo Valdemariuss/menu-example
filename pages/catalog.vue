@@ -28,9 +28,6 @@ export default {
     ToggleMenu,
   },
   computed: {
-    ...mapGetters('catalog', [
-      'getCategoryByUrl',
-    ]),
     params() {
       return this.$route.params
     },
