@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 
 import ToggleMenu from '~/components/ToggleMenu.vue'
 
