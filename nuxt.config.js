@@ -1,6 +1,18 @@
 module.exports = {
   mode: 'universal',
   /*
+  ** Nuxt router configuration
+  ** See https://nuxtjs.org/api/configuration-router/
+  */
+  router: {
+    extendRoutes (routes, resolve){
+      routes.push({
+        path: "/catalog/:cat?/:subcat?/:subsubcat?",
+        component: resolve(__dirname, "pages/catalog.vue"),
+      })
+    }
+  },
+  /*
   ** Headers of the page
   */
   head: {
