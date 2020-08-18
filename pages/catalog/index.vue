@@ -3,7 +3,7 @@
      <div class="container">
         <div class="row">
           <aside class="col-md-4">
-            <toggle-menu header="Категории" :key="updateMenu" :items="sortedCategories" :opens="opensCategories" @on-toggle="onToggle" urlPrefix="/catalog/" />
+            <toggle-menu header="Категории" :items="categories" :opens="openCategories" @on-toggle="onToggle" urlPrefix="/catalog/" />
           </aside>
           <div class="col-md-8">
             <div class="catalog-page__content">
@@ -27,17 +27,8 @@ export default {
   components: {
     ToggleMenu,
   },
-  data: () => ({
-    updateMenu: 0,
-  }),
-  async created() {
-    if( !this.categories || !this.categories.length) {
-      await this.$store.dispatch('catalog/getCategories')
-    }
-  },
   computed: {
     ...mapGetters('catalog', [
-      'sortedCategories',
       'getCategoryByUrl',
     ]),
     params() {
@@ -46,7 +37,7 @@ export default {
     categories() {
       return this.$store.state.catalog.categories
     },
-    opensCategories() {
+    openCategories() {
       return this.$store.state.catalog.openCategories
     },
     title(){

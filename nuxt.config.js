@@ -25,8 +25,8 @@ module.exports = {
   */
   plugins: [
     '~/plugins/axios',
+    '~/plugins/transitions',
     { src: '~/plugins/all-client', ssr: false },
-    { src: '~/plugins/transitions', ssr: false },
   ],
   /*
    ** Nuxt.js modules
