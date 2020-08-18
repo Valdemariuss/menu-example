@@ -24,8 +24,9 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/axios',
     { src: '~/plugins/all-client', ssr: false },
-    { src: '~/plugins/transitions.js', ssr: false },
+    { src: '~/plugins/transitions', ssr: false },
   ],
   /*
    ** Nuxt.js modules
